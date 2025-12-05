@@ -10,6 +10,7 @@
   "modules-left": [
     "custom/archicon",
     "clock",
+    "custom/notification"
   ],
   "modules-right": [
     "cpu",
@@ -22,6 +23,12 @@
     "format": "",
     "on-click": "wofi --show drun",
     "tooltip": false
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "",
+    "on-click": "swaync-client -t -sw",
+    "escape": true
   },
   "clock": {
     "timezone": "Australia/Sydney",
@@ -42,25 +49,24 @@
     "tooltip-format": "RAM Usage: {used} / {total} ({percentage}%)"
   },
   "battery": {
-              "interval":30,
-            "states": {
-                "good": 95,
-                "warning": 30,
-                "critical": 20
-            },
-            "format": "{capacity}% {icon}",
-            "format-charging": "{capacity}% 󰂄",
-            "format-plugged": "{capacity}% 󰂄 ",
-            "format-alt": "{time} {icon}",
-            "format-icons": [
-                "󰁻",
-            "󰁼",
-            "󰁾",
-            "󰂀",
-            "󰂂",
-            "󰁹"
-            ],
-        },
+    "interval": 30,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󰂄 ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "󰁻",
+      "󰁼",
+      "󰁾",
+      "󰂀",
+      "󰂂",
+      "󰁹"
+    ]
   },
   "temperature": {
     "format": "{temperatureC}°C {icon}",

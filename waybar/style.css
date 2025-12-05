@@ -19,6 +19,7 @@ window#waybar.hidden {
 #clock,
 #cpu,
 #memory,
+#custom-notifcation,
 #disk,
 #temperature,
 #idle_inhibitor,
@@ -38,6 +39,7 @@ transition: none;
 /* Separation to the left */
 #custom-archicon,
 #cpu,
+#custom-notifcation,
 #idle_inhibitor {
 margin-left: 5px;
 border-top-left-radius: 10px;
@@ -76,6 +78,10 @@ background: #292752;
 
 #cpu {
 background: #37588a;
+}
+
+#custom-notifcation{
+    background: #456ead;
 }
 
 #memory {
