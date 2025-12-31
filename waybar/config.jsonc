@@ -1,6 +1,7 @@
 {
   "layer": "top",
   "position": "top",
+  // "expand-left": true,
   "autohide": true,
   "autohide-blocked": false,
   "exclusive": true,
@@ -8,21 +9,26 @@
   "gtk-layer-shell": true,
   /* === Modules Order === */
   "modules-left": [
-    "custom/archicon",
+    // "custom/archicon",
     "clock",
+    "custom/btop",
     "custom/notification"
   ],
   "modules-right": [
     "cpu",
     "memory",
     "battery",
-    "temperature"
+    "custom/mpd"
   ],
   /* === Modules Left === */
   "custom/archicon": {
     "format": "",
     "on-click": "wofi --show drun",
     "tooltip": false
+  },
+    "custom/btop": {
+    "format": "  ",
+    "on-click": "foot btop",
   },
   "custom/notification": {
     "tooltip": false,
@@ -46,7 +52,7 @@
   "memory": {
     "format": "{}% 󰍛",
     "tooltip": true,
-    "tooltip-format": "RAM Usage: {used} / {total} ({percentage}%)"
+    "tooltip-format": "{used}GiB / {total}GiB ({percentage}%)"
   },
   "battery": {
     "interval": 30,
@@ -102,26 +108,22 @@
       "rofi"
     ]
   },
+  "custom/mpd": {
+    "format": "♪ {text}",
+    "format-stopped": "■ No music",
+    "exec": "song=$(mpc current -f '%file%' 2>/dev/null); if [ -n \"$song\" ]; then echo \"$song\" | sed 's/\\.[^.]*$//' | awk -F ' - ' '{if (NF >= 2) print $1 \" - \" $2; else print $0}'; else echo 'No music'; fi",
+    "interval": 5,
+    "max-length": 60,
+    "escape": true,
+    "on-click": "mpc toggle",
+    "on-click-right": "mpc next",
+    "on-click-middle": "mpc prev"
+  },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "",
       "deactivated": ""
-    }
-  },
-  "pulseaudio_slider": {
-    "format": "{volume}%",
-    "tooltip": false,
-    "on-click": "pavucontrol"
-  },
-  "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": " {format_source}",
-    "format-icons": {
-      "default": [
-        "",
-        ""
-      ]
     }
   },
   "network": {
